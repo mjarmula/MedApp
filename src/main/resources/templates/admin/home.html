@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Home Admin Panel</h1>
+Lekarze
+<a th:href="@{/doctor}">Panel lekarzy</a></br>
+
+<a th:href="@{/doctor/form}">dodaj lekarza</a></br>
+<a th:href="@{/doctor/edit/{id}}">edutyj lekarza</a></br>
+<a th:href="@{/doctor/delete/{id}}">usun lekarza</a></br>
+
+
+
+Recepcja
+<a th:href="@{/receptionist/form}">Panel recepcj</a><br>
+
+<a th:href="@{/receptionist/form}">dodaj recepcjonistke</a><br>
+<a th:href="@{/receptionist/edit/{id}}">edytuj recepcjonistke</a><br>
+<a th:href="@{/receptionist/delete/{id}}">usun recepcjonsitke</a><br>
+
+
+
+
+Pacjenci
+<a th:href="@{/patient}">Panel pacjentow</a><br>
+
+<a th:href="@{/patient/form}">dodaj pacjenta</a><br>
+<a th:href="@{/patient/edit/{id}}">edytuj pacjentow</a><br>
+<a th:href="@{/patient/delete/{id}}">ususn pacjenta pacjentow</a><br>
+</body>
+</html>
