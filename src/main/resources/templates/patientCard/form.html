@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${medicalHistroy}" method="post">
+    <p><textarea  rows = "10" cols = "40" th:field = "*{problemDescription}" placeholder="probelemDescription"></textarea></p>
+    <p><textarea  rows = "10" cols = "40" th:field = "*{treatment}" placeholder="treatment"></textarea></p>
+    <p><textarea  rows = "10" cols = "40" th:field = "*{reserach}" placeholder="badania"></textarea></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+</body>
+</html>
