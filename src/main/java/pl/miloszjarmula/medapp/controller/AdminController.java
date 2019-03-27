@@ -4,9 +4,13 @@ import org.hibernate.validator.constraints.pl.REGON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.miloszjarmula.medapp.entity.Admin;
 import pl.miloszjarmula.medapp.repository.AdminRepository;
+
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -30,9 +34,12 @@ public class AdminController {
     }
     @PostMapping("/form")
     @ResponseBody
-    public String form(@ModelAttribute Admin admin){
+    public String form(@Valid Admin admin, BindingResult result){
+        if(result.hasErrors()){
+            return "admin/form";
+        }
         adminRepository.save(admin);
-        return "zaposale";
+        return "zaposalem";
     }
     @GetMapping("/edit/{id}")
     public String editAdmin(@PathVariable Long id, Model model){
@@ -41,7 +48,10 @@ public class AdminController {
     }
     @PostMapping("/edit/{id}")//czy to id musi tu byc?
     @ResponseBody
-   public String editAdmin(@ModelAttribute Admin admin){
+   public String editAdmin(@Valid Admin admin, BindingResult result){
+        if (result.hasErrors()){
+            return "admin/form";
+        }
         adminRepository.save(admin);
         return "updated";
     }
@@ -50,5 +60,15 @@ public class AdminController {
     public String delete(@PathVariable Long id){
         adminRepository.deleteById(id);
         return "usunolem";
+    }
+    @GetMapping("/find/{id}")
+    public String findById(@PathVariable Long id, Model model){
+        model.addAttribute("admin", adminRepository.findById(id));
+        return "admin/list";
+    }
+    @GetMapping("/findAll")
+    public String findAll(Model model){
+        model.addAttribute("admin", adminRepository.findAll());
+        return "admin/list";
     }
 }

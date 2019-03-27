@@ -1,6 +1,9 @@
 package pl.miloszjarmula.medapp.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -9,12 +12,18 @@ public class Receptionist{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
+    @Email
     private String email;
+    @NotNull
     private int phoneNumber;
+    @NotBlank
     private String adress;
-    private LocalDate date;//zmienic na dateOfBirth
+    //co tu dac
+    private LocalDate dateOfBirth;//zmienic na dateOfBirth
 
     public Receptionist() {
     }
@@ -72,11 +81,11 @@ public class Receptionist{
         this.adress = adress;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 }

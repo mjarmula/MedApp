@@ -1,6 +1,9 @@
 package pl.miloszjarmula.medapp.entity;
 
+import org.hibernate.validator.constraints.pl.PESEL;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,17 +14,29 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
+    @PESEL
     private String pesel;
+    @Email
     private String email;
+    @NotNull
+    @Min(8)
+    @Max(10)
     private int phoneNumber;
+    @NotBlank
     private String adress;
+    @Past
     private LocalDate dateOfBirth;
+    @NotBlank
     private String problemDescription;
+    @NotBlank
     private String diagnosis;
+    @NotBlank
     private String treatment;
-    private String mediaclHistroy;
+   // private String mediaclHistroy;// zrobic medical history osobna encje
     private String reserach;// chodzi o badani mocz, krew itp;
     @OneToMany(mappedBy = "patient")
     private List<Appointment> appointments = new ArrayList<>();
@@ -117,13 +132,13 @@ public class Patient {
         this.treatment = treatment;
     }
 
-    public String getMediaclHistroy() {
-        return mediaclHistroy;
-    }
-
-    public void setMediaclHistroy(String mediaclHistroy) {
-        this.mediaclHistroy = mediaclHistroy;
-    }
+//    public String getMediaclHistroy() {
+//        return mediaclHistroy;
+//    }
+//
+//    public void setMediaclHistroy(String mediaclHistroy) {
+//        this.mediaclHistroy = mediaclHistroy;
+//    }
 
     public String getReserach() {
         return reserach;

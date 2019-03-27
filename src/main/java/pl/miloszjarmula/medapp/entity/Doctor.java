@@ -1,6 +1,7 @@
 package pl.miloszjarmula.medapp.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,14 +11,20 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
+    @Email
     private String email;
+    @Max(12)
+    @Min(8)
+    @NotNull
     private int phoneNumber;
+    @NotBlank
     private String adress;
     private LocalDate dateOfBirth;
     private String sepcialization;
-    //private List<String> services; // to bedzie wiazanie
     @OneToMany(mappedBy = "doctor")
     private List<Appointment> appointment = new ArrayList<>();
 

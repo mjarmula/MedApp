@@ -1,6 +1,9 @@
 package pl.miloszjarmula.medapp.entity;
 
+import org.hibernate.validator.constraints.pl.PESEL;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "admins")
@@ -8,11 +11,19 @@ public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
+    @Email
     private String email;
+    @PESEL
     private String pesel;
-    private int phoneNumber;
+    @NotNull
+    @Max(12)
+    @Min(8)// tu wypada sprawdzic czy nie jest za dlugi
+    private Integer phoneNumber;
+    @NotBlank
     private String adress;
 
     public Admin() {
@@ -58,11 +69,11 @@ public class Admin {
         this.pesel = pesel;
     }
 
-    public int getPhoneNumber() {
+    public Integer getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(Integer phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

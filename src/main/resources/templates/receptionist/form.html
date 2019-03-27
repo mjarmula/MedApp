@@ -8,6 +8,10 @@
 <form th:object="${receptionist}" method="post">
     <p>First name: <input type="text" th:field="*{firstName}" placeholder="firstName" /></p>
     <p>Last name: <input type="text" th:field="*{lastName}" placeholder = "lastName" /></p>
+    <p>email: <input type="email" th:field="*{email}" placeholder = "email" /></p>
+    <p>phoneNumber: <input type="number" th:field="*{phoneNumber}" placeholder = "phoneNumber" /></p>
+    <p>adress: <input type="text" th:field="*{adress}" placeholder = "adress" /></p>
+    <p>dateOfBirth: <input type="date" th:field="*{dateOfBirth}" placeholder = "dateOfBirth" /></p>
     <p><input type="submit" value="Submit" /></p>
 </form>
 </body>

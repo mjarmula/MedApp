@@ -4,10 +4,13 @@ import org.hibernate.property.access.internal.PropertyAccessStrategyNoopImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.miloszjarmula.medapp.entity.Receptionist;
 import pl.miloszjarmula.medapp.repository.ReceptionistRepository;
+import sun.awt.image.ShortInterleavedRaster;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -34,7 +37,10 @@ public class ReceptionistController {
     }
 
     @PostMapping("/form")
-    public String saveReceptionist(@ModelAttribute Receptionist receptionist) {
+    public String saveReceptionist(@Valid Receptionist receptionist, BindingResult result) {
+        if(result.hasErrors()){
+            return "receptionist/form";
+        }
         receptionistRepository.save(receptionist);
         return "zapoisalem";
     }
@@ -47,7 +53,10 @@ public class ReceptionistController {
 
     @PostMapping("/edit/{id}")
     @ResponseBody
-    public String editReceptionist(@ModelAttribute Receptionist receptionist) {
+    public String editReceptionist(@Valid Receptionist receptionist, BindingResult result) {
+        if(result.hasErrors()){
+            return "receptionist/form";
+        }
         receptionistRepository.save(receptionist);
         return "zaupdatowalem";
     }
@@ -57,6 +66,16 @@ public class ReceptionistController {
     public String deleteReceptionist(@PathVariable Long id) {
         receptionistRepository.deleteById(id);
         return "usnolem";
+    }
+    @GetMapping("/findAll")
+    public String findAll(Model model){
+        model.addAttribute(receptionistRepository.findAll());
+        return "receptionist/list";
+    }
+    @GetMapping("/find/{id}")
+    public String findById(Model model, @PathVariable Long id){
+        model.addAttribute(receptionistRepository.findById(id));
+        return "receptionist/list";
     }
 
     //wyszukiwanie i zaawasnsowane wyszukiwanie

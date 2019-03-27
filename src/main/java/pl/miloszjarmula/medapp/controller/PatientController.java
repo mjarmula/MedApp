@@ -3,10 +3,13 @@ package pl.miloszjarmula.medapp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.miloszjarmula.medapp.entity.Admin;
 import pl.miloszjarmula.medapp.entity.Patient;
 import pl.miloszjarmula.medapp.repository.PatientRepository;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/patient")
@@ -32,7 +35,10 @@ public class PatientController {
     }
     @PostMapping("/form")
     @ResponseBody
-    public String form(@ModelAttribute Patient patient){
+    public String form(@Valid Patient patient, BindingResult result){
+        if(result.hasErrors()){
+            return "patient/form";
+        }
         patientRepository.save(patient);
         return "zaposale";
     }
@@ -41,9 +47,12 @@ public class PatientController {
         model.addAttribute("patient",patientRepository.findById(id));
         return "patient/form";
     }
-    @PostMapping("/edit/{id}")//czy to id musi tu byc?
+    @PostMapping("/edit/{id}")
     @ResponseBody
-    public String editAdmin(@ModelAttribute Patient patient){
+    public String editAdmin(@Valid Patient patient, BindingResult result){
+        if(result.hasErrors()){
+            return "patient/form";
+        }
         patientRepository.save(patient);
         return "updated";
     }
@@ -52,5 +61,16 @@ public class PatientController {
     public String delete(@PathVariable Long id){
         patientRepository.deleteById(id);
         return "usunolem";
+    }
+
+    @GetMapping("/findAll")
+    public String findAll(Model model){
+        model.addAttribute("patient", patientRepository.findAll());
+        return "patient/list";
+    }
+    @GetMapping("/find/{id}")
+    public String findById(Model model, @PathVariable Long id){
+        model.addAttribute("patient", patientRepository.findById(id));
+        return "patient/list";
     }
 }
