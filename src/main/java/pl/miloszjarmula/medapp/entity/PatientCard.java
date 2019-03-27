@@ -4,8 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "medicalHistories")
-public class MedicalHistory {
+@Table(name = "patientCards")
+public class PatientCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

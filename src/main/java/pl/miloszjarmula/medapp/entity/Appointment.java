@@ -15,7 +15,7 @@ public class Appointment {
     private Doctor doctor;
     @ManyToOne
     private Patient patient;
-    private LocalDateTime localDateTime;
+    private LocalDateTime appointmentDateTime;
     @OneToMany(mappedBy = "appointment")
     private List<Service> services = new ArrayList<>();
 
@@ -46,12 +46,12 @@ public class Appointment {
         this.patient = patient;
     }
 
-    public LocalDateTime getLocalDateTime() {
-        return localDateTime;
+    public LocalDateTime getAppointmentDateTime() {
+        return appointmentDateTime;
     }
 
-    public void setLocalDateTime(LocalDateTime localDateTime) {
-        this.localDateTime = localDateTime;
+    public void setAppointmentDateTime(LocalDateTime appointmentDateTime) {
+        this.appointmentDateTime = appointmentDateTime;
     }
 
     public List<Service> getServices() {

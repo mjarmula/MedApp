@@ -22,7 +22,6 @@ public class Receptionist{
     private int phoneNumber;
     @NotBlank
     private String adress;
-    //co tu dac
     private LocalDate dateOfBirth;//zmienic na dateOfBirth
 
     public Receptionist() {

@@ -5,10 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<form th:object="${medicalHistroy}" method="post">
+<form th:object="${patientCard}" method="post">
     <p><textarea  rows = "10" cols = "40" th:field = "*{problemDescription}" placeholder="probelemDescription"></textarea></p>
+    <p><textarea  rows = "10" cols = "40" th:field = "*{diagnosis}" placeholder="probelemDescription"></textarea></p>
     <p><textarea  rows = "10" cols = "40" th:field = "*{treatment}" placeholder="treatment"></textarea></p>
-    <p><textarea  rows = "10" cols = "40" th:field = "*{reserach}" placeholder="badania"></textarea></p>
+    <p><textarea  rows = "10" cols = "40" th:field = "*{examination}" placeholder="badania"></textarea></p>
     <p><input type="submit" value="Submit" /></p>
 </form>
 </body>

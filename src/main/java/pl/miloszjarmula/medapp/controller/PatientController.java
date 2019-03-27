@@ -65,12 +65,12 @@ public class PatientController {
 
     @GetMapping("/findAll")
     public String findAll(Model model){
-        model.addAttribute("patient", patientRepository.findAll());
+        model.addAttribute("patients", patientRepository.findAll());
         return "patient/list";
     }
     @GetMapping("/find/{id}")
     public String findById(Model model, @PathVariable Long id){
-        model.addAttribute("patient", patientRepository.findById(id));
+        model.addAttribute("patients", patientRepository.findById(id));
         return "patient/list";
     }
 }

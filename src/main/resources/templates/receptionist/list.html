@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-tutuj bedzie zwracana lista
+<table>
+    <tr th:each="receptionist: ${receptionists}">
+        <td th:text="${receptionist.firstName}"></td>
+    </tr>
+</table>
 </body>
 </html>

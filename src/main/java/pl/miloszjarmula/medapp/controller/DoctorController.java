@@ -69,7 +69,7 @@ public class DoctorController {
     }
     @GetMapping("/findAll")
     public String findAll(Model model){
-        model.addAttribute("doctor",doctorRepository.findAll());
+        model.addAttribute("doctors",doctorRepository.findAll());
         return "doctor/list";
     }
     @GetMapping("find/{id}")

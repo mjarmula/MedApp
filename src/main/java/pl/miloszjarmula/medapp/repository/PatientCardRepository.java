@@ -1,7 +1,7 @@
 package pl.miloszjarmula.medapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.miloszjarmula.medapp.entity.MedicalHistory;
+import pl.miloszjarmula.medapp.entity.PatientCard;
 
-public interface MedicalHistoryRepository extends JpaRepository<MedicalHistory, Long > {
+public interface PatientCardRepository extends JpaRepository<PatientCard, Long > {
 }

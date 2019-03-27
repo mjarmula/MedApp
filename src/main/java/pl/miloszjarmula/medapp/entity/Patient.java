@@ -23,21 +23,13 @@ public class Patient {
     @Email
     private String email;
     @NotNull
-    @Min(8)
-    @Max(10)
     private int phoneNumber;
     @NotBlank
     private String adress;
     @Past
     private LocalDate dateOfBirth;
-    @NotBlank
-    private String problemDescription;
-    @NotBlank
-    private String diagnosis;
-    @NotBlank
-    private String treatment;
-   // private String mediaclHistroy;// zrobic medical history osobna encje
-    private String reserach;// chodzi o badani mocz, krew itp;
+    @OneToOne
+    private PatientCard patientCard;
     @OneToMany(mappedBy = "patient")
     private List<Appointment> appointments = new ArrayList<>();
 
@@ -108,45 +100,6 @@ public class Patient {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getProblemDescription() {
-        return problemDescription;
-    }
-
-    public void setProblemDescription(String problemDescription) {
-        this.problemDescription = problemDescription;
-    }
-
-    public String getDiagnosis() {
-        return diagnosis;
-    }
-
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
-    }
-
-    public String getTreatment() {
-        return treatment;
-    }
-
-    public void setTreatment(String treatment) {
-        this.treatment = treatment;
-    }
-
-//    public String getMediaclHistroy() {
-//        return mediaclHistroy;
-//    }
-//
-//    public void setMediaclHistroy(String mediaclHistroy) {
-//        this.mediaclHistroy = mediaclHistroy;
-//    }
-
-    public String getReserach() {
-        return reserach;
-    }
-
-    public void setReserach(String reserach) {
-        this.reserach = reserach;
-    }
 
 
 }

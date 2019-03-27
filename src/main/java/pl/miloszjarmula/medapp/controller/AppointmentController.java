@@ -6,17 +6,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.miloszjarmula.medapp.entity.Appointment;
 import pl.miloszjarmula.medapp.entity.Doctor;
+import pl.miloszjarmula.medapp.entity.Patient;
 import pl.miloszjarmula.medapp.repository.AppointmentRepository;
+import pl.miloszjarmula.medapp.repository.DoctorRepository;
+import pl.miloszjarmula.medapp.repository.PatientRepository;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/appointment")
 public class AppointmentController {
 
     private final AppointmentRepository appointmentRepository;
+    private final DoctorRepository doctorRepository;
+    private final PatientRepository patientRepository;
 
     @Autowired
-    public AppointmentController(AppointmentRepository appointmentRepository) {
+    public AppointmentController(AppointmentRepository appointmentRepository, DoctorRepository doctorRepository, PatientRepository patientRepository) {
         this.appointmentRepository = appointmentRepository;
+        this.doctorRepository = doctorRepository;
+        this.patientRepository = patientRepository;
     }
 
     @GetMapping("/form")
@@ -51,5 +60,17 @@ public class AppointmentController {
         appointmentRepository.deleteById(id);
         return "usunolem";
     }
+
+    @ModelAttribute("doctors")
+    public List<Doctor> getDoctors() {
+        return doctorRepository.findAll();
+    }
+
+    @ModelAttribute("patients")
+    public List<Patient> getPatients() {
+        return patientRepository.findAll();
+    }
+
+
 
 }

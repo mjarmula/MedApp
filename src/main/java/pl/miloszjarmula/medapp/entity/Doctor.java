@@ -17,8 +17,6 @@ public class Doctor {
     private String lastName;
     @Email
     private String email;
-    @Max(12)
-    @Min(8)
     @NotNull
     private int phoneNumber;
     @NotBlank

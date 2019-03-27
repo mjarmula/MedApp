@@ -37,6 +37,7 @@ public class ReceptionistController {
     }
 
     @PostMapping("/form")
+    @ResponseBody
     public String saveReceptionist(@Valid Receptionist receptionist, BindingResult result) {
         if(result.hasErrors()){
             return "receptionist/form";
@@ -69,12 +70,12 @@ public class ReceptionistController {
     }
     @GetMapping("/findAll")
     public String findAll(Model model){
-        model.addAttribute(receptionistRepository.findAll());
+        model.addAttribute("receptionists",receptionistRepository.findAll());
         return "receptionist/list";
     }
     @GetMapping("/find/{id}")
     public String findById(Model model, @PathVariable Long id){
-        model.addAttribute(receptionistRepository.findById(id));
+        model.addAttribute("receptionists",receptionistRepository.findById(id));
         return "receptionist/list";
     }
 

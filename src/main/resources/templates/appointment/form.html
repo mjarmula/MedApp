@@ -6,10 +6,24 @@
 </head>
 <body>
 <form th:object="${appointment}" method="post">
-    <p>Doctor : <input type="text" th:field="*{doctor}" placeholder="doctor" /></p>
-    <p>Last name: <input type="text" th:field="*{patient}" placeholder = "patient" /></p>
-    <p>Last name: <input type="text" th:field="*{patient}" placeholder = "tutaj pojdzie select" /></p>D
-    <p><input type="submit" value="Submit" /></p>
+    <label>wybierz pacjenta
+        <select th:field="*{patient}">
+            <option th:each="patient : ${patients}"
+                    th:value="${patient.}"
+                    th:text="${patient.firstName}">
+            </option>
+        </select>
+    </label>
+    <label>wybierz lekarza
+        <select th:field="*{doctor}">
+            <option th:each="doctor : ${doctors}"
+                    th:value="${doctor.id}"
+                    th:text="${doctor.firstName}">
+            </option>
+        </select>
+        <p>apppointment date & time: <input type="datetime-local" th:field="*{appointmentDateTime}" /></p>
+        <p><input type="submit" value="Submit" /></p>
+    </label>
 </form>
 </body>
 </html>

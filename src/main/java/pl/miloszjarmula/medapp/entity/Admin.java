@@ -20,8 +20,7 @@ public class Admin {
     @PESEL
     private String pesel;
     @NotNull
-    @Max(12)
-    @Min(8)// tu wypada sprawdzic czy nie jest za dlugi
+    // tu wypada sprawdzic czy nie jest za dlugi
     private Integer phoneNumber;
     @NotBlank
     private String adress;
