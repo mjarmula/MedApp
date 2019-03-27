@@ -9,7 +9,7 @@
     <label>wybierz pacjenta
         <select th:field="*{patient}">
             <option th:each="patient : ${patients}"
-                    th:value="${patient.}"
+                    th:value="${patient.id}"
                     th:text="${patient.firstName}">
             </option>
         </select>
@@ -21,9 +21,17 @@
                     th:text="${doctor.firstName}">
             </option>
         </select>
-        <p>apppointment date & time: <input type="datetime-local" th:field="*{appointmentDateTime}" /></p>
-        <p><input type="submit" value="Submit" /></p>
     </label>
+    <label>wybierz usulge
+        <select th:field="*{services}">
+            <option th:each="service : ${services}"
+                    th:value="${service.id}"
+                    th:text="${service.name}">
+            </option>
+        </select>
+    </label>
+    <p>apppointment date & time: <input type="datetime-local" th:field="*{appointmentDateTime}" /></p>
+    <p><input type="submit" value="Submit" /></p>
 </form>
 </body>
 </html>

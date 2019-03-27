@@ -7,7 +7,7 @@ import pl.miloszjarmula.medapp.repository.DoctorRepository;
 
 import java.util.Optional;
 
-public class DoctorConvert implements Converter<String, Doctor> {
+public class DoctorConvert implements Converter<String, Optional<Doctor>> {
 
     @Autowired
     DoctorRepository doctorRepository;
@@ -15,8 +15,8 @@ public class DoctorConvert implements Converter<String, Doctor> {
 
 
     @Override
-    public Doctor convert(String s) {
-        // return doctorRepository.findById(Long.parseLong(s)); tak mi nie dziala dostaje komunitakt ze to powinno zwracac Optional<Docotor>
-        return doctorRepository.getOne(Long.parseLong(s));
+    public Optional<Doctor> convert(String s) {
+        Optional<Doctor> byId = doctorRepository.findById(Long.parseLong(s));
+        return byId;
     }
 }

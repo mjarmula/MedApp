@@ -5,13 +5,16 @@ import org.springframework.core.convert.converter.Converter;
 import pl.miloszjarmula.medapp.entity.Patient;
 import pl.miloszjarmula.medapp.repository.PatientRepository;
 
-public class PatientConverter implements Converter<String, Patient> {
+import java.util.Optional;
+
+public class PatientConverter implements Converter<String, Optional<Patient>> {
 
     @Autowired
     PatientRepository patientRepository;
 
     @Override
-    public Patient convert(String s) {
-        return patientRepository.getOne(Long.parseLong(s)) ;
+    public Optional<Patient> convert(String s) {
+        Optional<Patient> byId = patientRepository.findById(Long.parseLong(s));
+        return  byId;
     }
 }
