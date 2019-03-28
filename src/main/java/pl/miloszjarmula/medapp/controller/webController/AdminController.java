@@ -1,4 +1,4 @@
-package pl.miloszjarmula.medapp.controller;
+package pl.miloszjarmula.medapp.controller.webController;
 
 import org.hibernate.validator.constraints.pl.REGON;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +10,7 @@ import pl.miloszjarmula.medapp.entity.Admin;
 import pl.miloszjarmula.medapp.repository.AdminRepository;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -72,4 +73,5 @@ public class AdminController {
         model.addAttribute("admins", adminRepository.findAll());
         return "admin/list";
     }
+
 }

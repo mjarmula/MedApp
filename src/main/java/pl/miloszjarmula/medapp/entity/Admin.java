@@ -19,9 +19,8 @@ public class Admin {
     private String email;
     @PESEL
     private String pesel;
-    @NotNull
     // tu wypada sprawdzic czy nie jest za dlugi
-    private Integer phoneNumber;
+    private String phoneNumber;
     @NotBlank
     private String adress;
 
@@ -68,11 +67,11 @@ public class Admin {
         this.pesel = pesel;
     }
 
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

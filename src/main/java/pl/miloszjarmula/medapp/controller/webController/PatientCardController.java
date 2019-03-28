@@ -1,15 +1,17 @@
-package pl.miloszjarmula.medapp.controller;
+package pl.miloszjarmula.medapp.controller.webController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.miloszjarmula.medapp.entity.Doctor;
+import pl.miloszjarmula.medapp.entity.Patient;
 import pl.miloszjarmula.medapp.entity.PatientCard;
 import pl.miloszjarmula.medapp.repository.PatientCardRepository;
+import pl.miloszjarmula.medapp.repository.PatientRepository;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @Controller
@@ -17,10 +19,12 @@ import javax.validation.Valid;
 public class PatientCardController {
 
     private final PatientCardRepository patientCardRepository;
+    private final PatientRepository patientRepository;
 
     @Autowired
-    public PatientCardController(PatientCardRepository patientCardRepository) {
+    public PatientCardController(PatientCardRepository patientCardRepository, PatientRepository patientRepository) {
         this.patientCardRepository = patientCardRepository;
+        this.patientRepository = patientRepository;
     }
 
     @GetMapping("/form")
@@ -70,6 +74,10 @@ public class PatientCardController {
     public String findById(Model model, @PathVariable Long id){
         model.addAttribute("patientCards", patientCardRepository.findById(id));
         return "patientCard/list";
+    }
+    @ModelAttribute("patients")
+    public List<Patient> getPatients() {
+        return patientRepository.findAll();
     }
 
 }

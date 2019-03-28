@@ -6,8 +6,14 @@
 </head>
 <body>
 <form th:object="${patientCard}" method="post">
+    <select th:field="*{patient}">
+        <option th:each="patient : ${patients}"
+                th:value="${patient.id}"
+                th:text="${patient.lastName}">
+        </option>
+    </select>
     <p><textarea  rows = "10" cols = "40" th:field = "*{problemDescription}" placeholder="probelemDescription"></textarea></p>
-    <p><textarea  rows = "10" cols = "40" th:field = "*{diagnosis}" placeholder="probelemDescription"></textarea></p>
+    <p><textarea  rows = "10" cols = "40" th:field = "*{diagnosis}" placeholder="diagnosis"></textarea></p>
     <p><textarea  rows = "10" cols = "40" th:field = "*{treatment}" placeholder="treatment"></textarea></p>
     <p><textarea  rows = "10" cols = "40" th:field = "*{examination}" placeholder="badania"></textarea></p>
     <p><input type="submit" value="Submit" /></p>

@@ -1,4 +1,4 @@
-package pl.miloszjarmula.medapp.controller;
+package pl.miloszjarmula.medapp.controller.webController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package pl.miloszjarmula.medapp.controller;
+package pl.miloszjarmula.medapp.controller.webController;
 
 import org.hibernate.property.access.internal.PropertyAccessStrategyIndexBackRefImpl;
 import org.springframework.beans.factory.annotation.Autowired;

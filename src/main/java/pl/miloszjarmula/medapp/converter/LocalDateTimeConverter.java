@@ -8,6 +8,9 @@ public class LocalDateTimeConverter implements Converter<String, LocalDateTime>{
 
     @Override
     public LocalDateTime convert(String s) {
+        if(s == null || s.isEmpty()){
+            return  null;
+        }
         return LocalDateTime.parse(s);
     }
 }

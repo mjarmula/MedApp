@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${service}" method="post">
+    <p>service name: <input type="text" th:field="*{name}" placeholder="name" /></p>
+    <p>service description: <input type="text" th:field="*{description}" placeholder="description" /></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+</body>
+</html>

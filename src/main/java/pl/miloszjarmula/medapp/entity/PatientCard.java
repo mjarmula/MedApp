@@ -2,6 +2,7 @@ package pl.miloszjarmula.medapp.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 @Table(name = "patientCards")
@@ -17,6 +18,7 @@ public class PatientCard {
     private String treatment;
     @NotBlank
     private String examination;
+
     @OneToOne
     Patient patient;
 
@@ -59,4 +61,13 @@ public class PatientCard {
     public void setExamination(String examination) {
         this.examination = examination;
     }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
 }

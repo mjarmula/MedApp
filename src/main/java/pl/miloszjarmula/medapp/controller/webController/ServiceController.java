@@ -1,4 +1,4 @@
-package pl.miloszjarmula.medapp.controller;
+package pl.miloszjarmula.medapp.controller.webController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class ServiceController {
 
     @GetMapping("/form")
     public String form(Model model){
-        model.addAttribute(new Service());
+        model.addAttribute("service",new Service());
         return "service/form";
     }
 
@@ -61,7 +61,7 @@ public class ServiceController {
     }
     @GetMapping("/findAll")
     public String findAll(Model model){
-        model.addAttribute("doctors",serviceRepository.findAll());
+        model.addAttribute("service",serviceRepository.findAll());
         return "doctor/list";
     }
     @GetMapping("find/{id}")
