@@ -61,13 +61,13 @@ public class ServiceController {
     }
     @GetMapping("/findAll")
     public String findAll(Model model){
-        model.addAttribute("service",serviceRepository.findAll());
-        return "doctor/list";
+        model.addAttribute("services",serviceRepository.findAll());
+        return "service/list";
     }
     @GetMapping("find/{id}")
     public String findById(Model model, @PathVariable Long id){
-        model.addAttribute("service", serviceRepository.findById(id));
-        return "doctor/list";
+        model.addAttribute("services", serviceRepository.findById(id));
+        return "service/list";
     }
 
 }

@@ -5,11 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<form method="post" th:object="${service}">
-    <p> service name: <input type="text" th:field="*{name}" placeholder="name" /></p>
-    <p><textarea  rows = "10" cols = "40" th:field = "*{description}" placeholder="service description"></textarea></p>
-    <p>price: <input type="number" th:field="*{price}" placeholder = "price" /></p>
-    <p><input type="submit" value="Submit" /></p>
-</form>
+
+<div>
+    <h2>dodaj usluge</h2>
+    <form method="post" th:object="${service}">
+        <p> service name: <input type="text" th:field="*{name}" placeholder="name" /></p>
+        <p><textarea  rows = "10" cols = "40" th:field = "*{description}" placeholder="service description"></textarea></p>
+        <p>price: <input type="number" th:field="*{price}" placeholder = "price" /></p>
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+</div>
 </body>
 </html>

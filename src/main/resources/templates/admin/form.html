@@ -5,14 +5,18 @@
     <title>Title</title>
 </head>
 <body>
-<form th:object="${admin}" method="post">
-    <p>First name: <input type="text" th:field="*{firstName}" placeholder="firstName" /></p>
-    <p>Last name: <input type="text" th:field="*{lastName}" placeholder = "lastName" /></p>
-    <p>email: <input type="email" th:field="*{email}" placeholder = "email" /></p>
-    <p>pesel: <input type="text" th:field="*{pesel}" placeholder = "pesel" /></p>
-    <p>phoneNumber: <input type="text" th:field="*{phoneNumber}" placeholder = "phoneNumber" /></p>
-    <p>adress: <input type="text" th:field="*{adress}" placeholder = "adress" /></p>
-    <p><input type="submit" value="Submit" /></p>
-</form>
+
+<div>
+    <h2> dodaj admina</h2>
+    <form th:object="${admin}" method="post">
+        <p>First name: <input type="text" th:field="*{firstName}" placeholder="firstName" /></p>
+        <p>Last name: <input type="text" th:field="*{lastName}" placeholder = "lastName" /></p>
+        <p>email: <input type="email" th:field="*{email}" placeholder = "email" /></p>
+        <p>pesel: <input type="text" th:field="*{pesel}" placeholder = "pesel" /></p>
+        <p>phoneNumber: <input type="text" th:field="*{phoneNumber}" placeholder = "phoneNumber" /></p>
+        <p>adress: <input type="text" th:field="*{adress}" placeholder = "adress" /></p>
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+</div>
 </body>
 </html>

@@ -5,33 +5,37 @@
     <title>Title</title>
 </head>
 <body>
-<form th:object="${appointment}" method="post">
-    <label>wybierz pacjenta
-        <select th:field="*{patient}">
-            <option th:each="patient : ${patients}"
-                    th:value="${patient.id}"
-                    th:text="${patient.firstName}">
-            </option>
-        </select>
-    </label>
-    <label>wybierz lekarza
-        <select th:field="*{doctor}">
-            <option th:each="doctor : ${doctors}"
-                    th:value="${doctor.id}"
-                    th:text="${doctor.firstName}">
-            </option>
-        </select>
-    </label>
-    <label>wybierz usulge
-        <select th:field="*{services}">
-            <option th:each="service : ${services}"
-                    th:value="${service.id}"
-                    th:text="${service.name}">
-            </option>
-        </select>
-    </label>
-    <p>apppointment date & time: <input type="datetime-local" th:field="*{appointmentDateTime}" /></p>
-    <p><input type="submit" value="Submit" /></p>
-</form>
+<div>
+    <h2>dodaj wizyte</h2>
+    <form th:object="${appointment}" method="post">
+        <label>wybierz pacjenta
+            <select th:field="*{patient}">
+                <option th:each="patient : ${patients}"
+                        th:value="${patient.id}"
+                        th:text="${patient.firstName}">
+                </option>
+            </select>
+        </label>
+        <label>wybierz lekarza
+            <select th:field="*{doctor}">
+                <option th:each="doctor : ${doctors}"
+                        th:value="${doctor.id}"
+                        th:text="${doctor.firstName}">
+                </option>
+            </select>
+        </label>
+        <label>wybierz usulge
+            <select th:field="*{services}">
+                <option th:each="service : ${services}"
+                        th:value="${service.id}"
+                        th:text="${service.name}">
+                </option>
+            </select>
+        </label>
+        <p>apppointment date & time: <input type="datetime-local" th:field="*{appointmentDateTime}" /></p>
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+</div>
+
 </body>
 </html>

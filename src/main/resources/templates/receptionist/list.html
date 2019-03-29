@@ -5,10 +5,48 @@
     <title>Title</title>
 </head>
 <body>
-<table>
-    <tr th:each="receptionist: ${receptionists}">
-        <td th:text="${receptionist.firstName}"></td>
-    </tr>
-</table>
+
+<div class="container">
+
+    <h3 class="header">Receptionist</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <a href="/receptionist/form" class="btn btn-primary">Add Receptionist</a>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+
+            <table class="table table-hover">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>PhoneNumber</th>
+                    <th>adress</th>
+                    <th>dateOfBirth</th>
+                    <th style="width: 15%">Actions</th>
+                </tr>
+                <tr th:each="receptionist: ${receptionists}">
+                    <td th:text="${receptionist.firstName}"></td>
+                    <td th:text="${receptionist.lastName}"></td>
+                    <td th:text="${receptionist.email}"></td>
+                    <td th:text="${receptionist.phoneNumber}"></td>
+                    <td th:text="${receptionist.adress}"></td>
+                    <td th:text="${receptionist.dateOfBirth}"></td>
+                    <td>
+                        <a href="/receptionist/form" th:href="@{|/receptionist/edit/${receptionist.id}|}"class="btn btn-success">Edit</a>
+                        <a href="#" th:href="@{|/receptionist/delete/${receptionist.id}|}"class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
 </body>
 </html>

@@ -1,13 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Title</title>
 </head>
 <body>
-<p>lekarze link przkierworujacy na lekarzy krorzy uzmoliwa iperacje crufowe</p>
-<p>pacjenci link przkierworujacy na pacjentow krorzy uzmoliwa iperacje crufowe</p>
-<p>recpcja link przkierworujacy na recepcji krorzy uzmoliwa iperacje crufowe</p>
-<p>raporty</p>
+<div class="container">
+
+    <h3 class="header">Admin</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <a href="/admin/form" class="btn btn-primary">Add Admin</a>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+
+            <table class="table table-hover">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Pesel</th>
+                    <th>PhoneNumber</th>
+                    <th>adress</th>
+                    <th style="width: 15%">Actions</th>
+                </tr>
+                <tr th:each="admin: ${admins}">
+                    <td th:text="${admin.firstName}"></td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
 </body>
 </html>
+
+
+
+
+<!--p>lekarze link przkierworujacy na lekarzy krorzy uzmoliwa iperacje crufowe</p>-->
+<!--<p>pacjenci link przkierworujacy na pacjentow krorzy uzmoliwa iperacje crufowe</p>-->
+<!--<p>recpcja link przkierworujacy na recepcji krorzy uzmoliwa iperacje crufowe</p>-->
+<!--<p>raporty</p>-->

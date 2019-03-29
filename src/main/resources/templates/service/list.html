@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+
+    <h3 class="header">Service</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <a href="/service/form" class="btn btn-primary">service</a>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+
+            <table class="table table-hover">
+                <tr>
+                    <th>name</th>
+                    <th>description</th>
+                    <th>price</th>
+                    <th style="width: 15%">Actions</th>
+                </tr>
+                <tr th:each="service: ${services}">
+                    <td th:text="${service.name}"></td>
+                    <td th:text="${service.description}"></td>
+                    <td th:text="${service.price}"></td>
+                    <td>
+                        <a href="/service/form" th:href="@{|/service/edit/${service.id}|}"class="btn btn-success">Edit</a>
+                        <a href="#" th:href="@{|/service/delete/${service.id}|}"class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
