@@ -3,21 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-
 <div>
-    <h2>dodaj lekarza</h2>
     <form th:object="${doctor}" method="post">
-        <p>First name: <input type="text" th:field="*{firstName}" placeholder="firstName" /></p>
-        <p>Last name: <input type="text" th:field="*{lastName}" placeholder = "lastName" /></p>
-        <p>email: <input type="email" th:field="*{email}" placeholder = "email" /></p>
-        <p>phoneNumber: <input type="number" th:field="*{phoneNumber}" placeholder = "phoneNumber" /></p>
-        <p>adress: <input type="text" th:field="*{adress}" placeholder = "adress" /></p>
-        <p>dateOfBirth: <input type="date" th:field="*{dateOfBirth}" placeholder = "dateOfBirth" /></p>
-        <p>specialization: <input type="text" th:field="*{sepcialization}" placeholder = "specialization" /></p>
-        <p><input type="submit" value="Submit" /></p>
+        <div class="container">
+
+            <h2 class="header">Add doctor</h2>
+
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <p>First name: <input type="text" th:field="*{firstName}" placeholder="firstName" class="form-controll" /></p>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Last name: <input type="text" th:field="*{lastName}" placeholder = "lastName"  class="form-controll" /></p>
+                    </div>
+
+                    <div class="form-group">
+                        <p>email: <input type="email" th:field="*{email}" placeholder = "email"  class="form-controll" /></p>
+
+                    </div>
+
+                    <div class="form-group">
+                        <p>phoneNumber: <input type="text" th:field="*{phoneNumber}" placeholder = "phoneNumber"  class="form-controll" /></p>
+                    </div>
+
+                    <div class="form-group">
+                        <p>adress: <input type="text" th:field="*{adress}" placeholder = "adress"  class="form-controll" /></p>
+                    </div>
+
+                    <div class="form-group">
+                        <p>specialziation: <input type="text" th:field="*{sepcialization}" placeholder = "adress"  class="form-controll" /></p>
+                    </div>
+
+                    <input type="submit" value="Save" class="btn btn-primary">
+
+                </div>
+            </div>
+
+        </div>
     </form>
 </div>
+
+<!--<div>-->
+    <!--<h2>dodaj lekarza</h2>-->
+    <!--<form th:object="${doctor}" method="post">-->
+        <!--<p>First name: <input type="text" th:field="*{firstName}" placeholder="firstName" /></p>-->
+        <!--<p>Last name: <input type="text" th:field="*{lastName}" placeholder = "lastName" /></p>-->
+        <!--<p>email: <input type="email" th:field="*{email}" placeholder = "email" /></p>-->
+        <!--<p>phoneNumber: <input type="number" th:field="*{phoneNumber}" placeholder = "phoneNumber" /></p>-->
+        <!--<p>adress: <input type="text" th:field="*{adress}" placeholder = "adress" /></p>-->
+        <!--<p>dateOfBirth: <input type="date" th:field="*{dateOfBirth}" placeholder = "dateOfBirth" /></p>-->
+        <!--<p>specialization: <input type="text" th:field="*{sepcialization}" placeholder = "specialization" /></p>-->
+        <!--<p><input type="submit" value="Submit" /></p>-->
+    <!--</form>-->
+<!--</div>-->
 </body>
 </html>

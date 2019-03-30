@@ -3,17 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
-<div>
-    <h2>dodaj usluge</h2>
-    <form method="post" th:object="${service}">
-        <p> service name: <input type="text" th:field="*{name}" placeholder="name" /></p>
-        <p><textarea  rows = "10" cols = "40" th:field = "*{description}" placeholder="service description"></textarea></p>
-        <p>price: <input type="number" th:field="*{price}" placeholder = "price" /></p>
-        <p><input type="submit" value="Submit" /></p>
-    </form>
+<form th:object="${service}" method="post">
+    <div class="container">
+
+        <h2 class="header">Add service</h2>
+
+        <div class="card">
+            <div class="card-body">
+
+                <div class="form-group">
+                    <p>name: <input type="text" th:field="*{name}" placeholder="name" class="form-controll" /></p>
+                </div>
+
+                <div class="form-group">
+                    <p><textarea  rows = "10" cols = "40" th:field = "*{description}" placeholder="service description"  class="form-controll"></textarea></p>
+                </div>
+
+                <div class="form-group">
+                    <p>price: <input type="number" th:field="*{price}" placeholder = "price"  class="form-controll" /></p>
+                </div>
+
+
+                <input type="submit" value="Save" class="btn btn-primary">
+
+            </div>
+        </div>
+
+    </div>
+</form>
 </div>
+
 </body>
 </html>

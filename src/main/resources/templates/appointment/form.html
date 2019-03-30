@@ -3,39 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <div>
-    <h2>dodaj wizyte</h2>
     <form th:object="${appointment}" method="post">
-        <label>wybierz pacjenta
-            <select th:field="*{patient}">
-                <option th:each="patient : ${patients}"
-                        th:value="${patient.id}"
-                        th:text="${patient.firstName}">
-                </option>
-            </select>
-        </label>
-        <label>wybierz lekarza
-            <select th:field="*{doctor}">
-                <option th:each="doctor : ${doctors}"
-                        th:value="${doctor.id}"
-                        th:text="${doctor.firstName}">
-                </option>
-            </select>
-        </label>
-        <label>wybierz usulge
-            <select th:field="*{services}">
-                <option th:each="service : ${services}"
-                        th:value="${service.id}"
-                        th:text="${service.name}">
-                </option>
-            </select>
-        </label>
-        <p>apppointment date & time: <input type="datetime-local" th:field="*{appointmentDateTime}" /></p>
-        <p><input type="submit" value="Submit" /></p>
+        <div class="container">
+
+            <h2 class="header">Add appointment</h2>
+
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label  class="form-controll">wybierz pacjenta
+                            <select th:field="*{patient}">
+                                <option th:each="patient : ${patients}"
+                                        th:value="${patient.id}"
+                                        th:text="${patient.firstName}">
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-controll">wybierz lekarza
+                            <select th:field="*{doctor}">
+                                <option th:each="doctor : ${doctors}"
+                                        th:value="${doctor.id}"
+                                        th:text="${doctor.firstName}">
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="form-controll">wybierz pacjenta
+                            <select th:field="*{services}">
+                                <option th:each="service : ${services}"
+                                        th:value="${service.id}"
+                                        th:text="${service.name}">
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <p>apppointment date & time: <input type="datetime-local" th:field="*{appointmentDateTime}"  class="form-controll" /></p>
+                    </div>
+
+                    <input type="submit" value="Save" class="btn btn-primary">
+
+                </div>
+            </div>
+
+        </div>
     </form>
 </div>
-
 </body>
 </html>

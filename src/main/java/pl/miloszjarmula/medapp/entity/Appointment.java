@@ -61,4 +61,8 @@ public class Appointment {
     public void setServices(List<Service> services) {
         this.services = services;
     }
+
+    public String getServiceList() {
+        return services.toString().replaceAll("[\\[\\]]", "");
+    }
 }

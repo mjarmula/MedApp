@@ -1,4 +1,4 @@
-package pl.miloszjarmula.medapp;
+package pl.miloszjarmula.medapp.securityConfig;
 
 
 //@Configuration
@@ -15,9 +15,10 @@ public class SecurityConfig //extends WebSecurityConfigurerAdapter {
 //
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
-//        http.csrf().disable().authorizeRequests() // potem to gowno csrf().disable do usuniecia
+//        http.authorizeRequests() // potem to gowno csrf().disable do usuniecia
 //                .antMatchers("/admin").hasRole("ADMIN")
 //                .anyRequest().permitAll()
 //                .and().formLogin();
+//        http.csrf().disable()
 //    }
 }

@@ -82,4 +82,12 @@ public class Admin {
     public void setAdress(String adress) {
         this.adress = adress;
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }

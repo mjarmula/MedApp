@@ -70,4 +70,12 @@ public class PatientCard {
         this.patient = patient;
     }
 
+    @Override
+    public String toString() {
+        return "PatientCard{" +
+                "diagnosis='" + diagnosis + '\'' +
+                ", treatment='" + treatment + '\'' +
+                ", patient=" + patient +
+                '}';
+    }
 }

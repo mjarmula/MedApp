@@ -93,6 +93,12 @@ public class Doctor {
         this.sepcialization = sepcialization;
     }
 
+    @Override
+    public String toString() {
+        return firstName  +
+                " " + lastName;
+    }
+
 
 //    public Patient getPatient() {
 //        return patient;

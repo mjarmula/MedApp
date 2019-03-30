@@ -72,6 +72,11 @@ public class AppointmentController {
         appointmentRepository.deleteById(id);
         return "deleted";
     }
+    @GetMapping("/findAll")
+    public String findAll(Model model){
+        model.addAttribute("appointments",appointmentRepository.findAll());
+        return "appointment/list";
+    }
 
     @ModelAttribute("doctors")
     public List<Doctor> getDoctors() {

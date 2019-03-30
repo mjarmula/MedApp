@@ -59,4 +59,9 @@ public class Service {
     public void setAppointment(Appointment appointment) {
         this.appointment = appointment;
     }
+
+    @Override
+    public String toString() {
+        return  name;
+    }
 }

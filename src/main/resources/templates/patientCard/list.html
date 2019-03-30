@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
 
-    <h3 class="header">Patient Card</h3>
+    <h3 class="header">patientCard</h3>
 
     <div class="card">
         <div class="card-body">
-            <a href="/patientCard/form" class="btn btn-primary">Add PatientsCard</a>
+            <a href="/patientCard/form" class="btn btn-primary">Add PatientCard</a>
+        </div>
+        <div class="card-body">
+            <a href="/patientSearch/search" class="btn btn-primary">find PatientCard</a>
         </div>
     </div>
 
@@ -20,16 +24,21 @@
 
             <table class="table table-hover">
                 <tr>
-                    <th>problem description</th>
-                    <th>diagnosis</th>
+                    <th>patient</th>
+                    <th>problem Description</th>
+                    <th>Diagnosis</th>
                     <th>treatment</th>
                     <th>examination</th>
                     <th style="width: 15%">Actions</th>
                 </tr>
-                <tr th:each="patiendCard: ${patientCards}">
-                    <td th:text="${patiendCard.problemDescription}"></td>
+                <tr th:each="patientCard: ${patientCards}">
+                    <td th:text="${patientCard.patient}"></td>
+                    <td th:text="${patientCard.problemDescription}"></td>
+                    <td th:text="${patientCard.diagnosis}"></td>
+                    <td th:text="${patientCard.treatment}"></td>
+                    <td th:text="${patientCard.examination}"></td>
                     <td>
-                        <a href="/patientCard/form" th:href="@{|/patiendCard/edit/${patientCard.id}|}"class="btn btn-success">Edit</a>
+                        <a href="/patientCard/form" th:href="@{|/patientCard/edit/${patientCard.id}|}"class="btn btn-success">Edit</a>
                         <a href="#" th:href="@{|/patientCard/delete/${patientCard.id}|}"class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
