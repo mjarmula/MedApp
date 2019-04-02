@@ -7,7 +7,7 @@ import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "admins")
-public class Admin {
+public class Admin  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

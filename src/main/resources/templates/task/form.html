@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div>
+    <form th:object="${task}" method="post">
+        <div class="container">
+
+            <h2 class="header">Add task</h2>
+
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <p>task title: <input type="text" th:field="*{name}" placeholder="firstName" class="form-controll" /></p>
+                    </div>
+
+                    <div class="form-group">
+                        <p>task description: <input type="text" th:field="*{description}" placeholder = "lastName"  class="form-controll" /></p>
+                    </div>
+
+                    <input type="submit" value="Save" class="btn btn-primary">
+
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>

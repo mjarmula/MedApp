@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+    <h3 class="header">Task</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <a href="/service/form" class="btn btn-primary"> add task</a>
+        </div>
+        <div class="card-body">
+            <a href="/searchService/search" class="btn btn-primary"> find task</a>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+
+            <table class="table table-hover">
+                <tr>
+                    <th>name</th>
+                    <th>description</th>
+                    <th style="width: 15%">Actions</th>
+                </tr>
+                <tr th:each="task: ${tasks}">
+                    <td th:text="${task.name}"></td>
+                    <td th:text="${task.description}"></td>
+                    <td>
+                        <a href="/task/form" th:href="@{|/task/edit/${task.id}|}"class="btn btn-success">Edit</a>
+                        <a href="#" th:href="@{|/task/delete/${task.id}|}"class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
