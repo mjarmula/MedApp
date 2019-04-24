@@ -78,6 +78,8 @@ public class AppointmentController {
         return "appointment/list";
     }
 
+
+
     @ModelAttribute("doctors")
     public List<Doctor> getDoctors() {
         return doctorRepository.findAll();

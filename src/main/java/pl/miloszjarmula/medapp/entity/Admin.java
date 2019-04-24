@@ -19,7 +19,6 @@ public class Admin  {
     private String email;
     @PESEL
     private String pesel;
-    // tu wypada sprawdzic czy nie jest za dlugi
     private String phoneNumber;
     @NotBlank
     private String adress;

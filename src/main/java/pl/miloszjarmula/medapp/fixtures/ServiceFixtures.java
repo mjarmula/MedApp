@@ -1,12 +1,6 @@
-package pl.miloszjarmula.medapp.Fixtures;
+package pl.miloszjarmula.medapp.fixtures;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pl.miloszjarmula.medapp.entity.Service;
-import pl.miloszjarmula.medapp.repository.ServiceRepository;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class ServiceFixtures {

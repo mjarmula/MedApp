@@ -11,8 +11,7 @@ public class Task {
     private Long id;
     private String name;
     private String description;
-    //tutuja ma byc relacja z uzotkownikeim
-
+    //TODO realtion with user
     public Task() {
     }
 

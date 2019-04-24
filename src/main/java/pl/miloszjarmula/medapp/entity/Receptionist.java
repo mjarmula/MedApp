@@ -22,7 +22,7 @@ public class Receptionist{
     private int phoneNumber;
     @NotBlank
     private String adress;
-    private LocalDate dateOfBirth;//zmienic na dateOfBirth
+    private LocalDate dateOfBirth;
 
     public Receptionist() {
     }
