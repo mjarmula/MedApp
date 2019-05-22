@@ -6,8 +6,8 @@
 </head>
 <body>
 <form th:object="${appointment}" method="post">
-    <p>doctors last name: <input type="text" th:field="*{doctor.lastName}" placeholder="doctor last name" /></p>
-    <p>patient last name: <input type="text" th:field="*{patient.lastName}" placeholder = " patient lastName" /></p>
+    <p>patient last name: <input type="text" th:field="*{patient.lastName}" placeholder="patient last name" /></p>
+    <p>doctor last name: <input type="text" th:field="*{doctor.lastName}" placeholder = " doctor lastName" /></p>
     <p>date: <input type="datetime-local" th:field="*{appointmentDateTime}" placeholder = "appointment date" /></p>
     <p><input type="submit" value="Submit" /></p>
 </form>

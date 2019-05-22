@@ -62,7 +62,7 @@ public class AdminController {
         adminRepository.deleteById(id);
         return "usunolem";
     }
-    //tutaj dorobic jeszcze
+
     @GetMapping("/find/{id}")
     public String findById(@PathVariable Long id, Model model){
         model.addAttribute("admins", adminRepository.findById(id));

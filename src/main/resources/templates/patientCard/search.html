@@ -6,8 +6,8 @@
 </head>
 <body>
 <form method="post" th:object ="${patientCard}">
-    <p>patient firsName: <input type="text" th:field="*{patient.firstName}" placeholder="probelm description" /></p>
-    <p>patient lastName: <input type="text" th:field="*{patient.lastName}" placeholder = "diagnosis" /></p>
+    <p>patient firsName: <input type="text" th:field="*{patient.firstName}" placeholder="patient firstName" /></p>
+    <p>patient lastName: <input type="text" th:field="*{patient.lastName}" placeholder = "patient Last Name" /></p>
     <p><input type="submit" value="send"/></p>
 </form>
 </body>

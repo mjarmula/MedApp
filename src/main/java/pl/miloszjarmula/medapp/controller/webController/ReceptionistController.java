@@ -79,7 +79,6 @@ public class ReceptionistController {
         return "receptionist/list";
     }
 
-    //wyszukiwanie i zaawasnsowane wyszukiwanie
 
 
 }
